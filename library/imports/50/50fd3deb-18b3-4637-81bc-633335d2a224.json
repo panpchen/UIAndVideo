@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "停车标识牌",
+    "texture": "cf10b19c-2601-4da3-b617-63baec5c2d90",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      95,
+      310
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      95,
+      310
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

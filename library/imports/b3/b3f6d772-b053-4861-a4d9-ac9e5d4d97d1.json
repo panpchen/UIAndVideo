@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "绿灯",
+    "texture": "e89189fa-e76a-4ef4-b8c5-a52516f4b940",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      156,
+      438
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      156,
+      438
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

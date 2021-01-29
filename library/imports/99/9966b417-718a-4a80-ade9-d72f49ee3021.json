@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "出租车",
+    "texture": "7c425f76-2d90-4c2a-82ec-27bcca0493e6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      299,
+      236
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      299,
+      236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

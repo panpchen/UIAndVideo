@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "subBg",
+    "texture": "27cec4d6-a25b-4901-8b62-7035b4ecb5a5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      700,
+      490
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      700,
+      490
+    ],
+    "capInsets": [
+      100,
+      100,
+      100,
+      100
+    ]
+  }
+}

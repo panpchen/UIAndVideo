@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "游戏结束",
+    "texture": "9b72a56f-e76b-4a33-aa6d-68d1855ff9f4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      270,
+      61
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      270,
+      61
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

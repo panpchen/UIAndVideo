@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "圆角矩形 3gray",
+    "texture": "b3eacaa8-9314-4613-bd88-77acccbbd665",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      156,
+      65
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      156,
+      65
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

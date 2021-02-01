@@ -30,12 +30,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+// 开启透明通道
 cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
 var Game = /** @class */ (function (_super) {
     __extends(Game, _super);
     function Game() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.videoPlayer = null;
+        return _this;
     }
+    Game.prototype.onLoad = function () {
+        this.videoPlayer.node.on("completed", this._onCompleted, this);
+        this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+    };
+    Game.prototype._onCompleted = function (event) {
+        cc.error("completed: ", event.detail);
+    };
+    Game.prototype._onReadyToPlay = function (event) {
+        cc.error("ready: ", event.detail);
+        this.videoPlayer.play();
+    };
+    __decorate([
+        property(cc.VideoPlayer)
+    ], Game.prototype, "videoPlayer", void 0);
     Game = __decorate([
         ccclass
     ], Game);

@@ -11,23 +11,16 @@
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
 require('./assets/Script/Ani/UpDownAni');
-require('./assets/Script/Ani/fillEffect');
-require('./assets/Script/Ani/progressBarMoveEffect');
 require('./assets/Script/Config/Constants');
 require('./assets/Script/Game');
-require('./assets/Script/LevelBase');
-require('./assets/Script/LevelSelect');
 require('./assets/Script/Loading');
 require('./assets/Script/Net/NetManger');
 require('./assets/Script/Net/SendMsg');
 require('./assets/Script/NodePool');
 require('./assets/Script/PoolMng');
-require('./assets/Script/UI/AnswerUI');
 require('./assets/Script/UI/BaseUI');
 require('./assets/Script/UI/MenuUI');
 require('./assets/Script/UI/PopBaseUI');
-require('./assets/Script/UI/ResultUI');
-require('./assets/Script/UI/SelectUI');
 require('./assets/Script/UIManager');
 require('./assets/Script/Utils');
 

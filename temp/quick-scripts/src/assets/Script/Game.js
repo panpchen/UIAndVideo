@@ -29,50 +29,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var LevelSelect_1 = require("./LevelSelect");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
 var Game = /** @class */ (function (_super) {
     __extends(Game, _super);
     function Game() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.levelPrefab = null;
-        _this.levelParent = null;
-        _this._level = null;
-        _this.lastSelectPlayerIdList = [];
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    Game_1 = Game;
-    Object.defineProperty(Game.prototype, "level", {
-        get: function () {
-            return this._level;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Game.prototype.onLoad = function () {
-        Game_1.instance = this;
-        cc.director.on("gameStart", this._startGame, this);
-    };
-    Game.prototype._startGame = function (playerId) {
-        if (!this._level) {
-            this._level = cc.instantiate(this.levelPrefab).getComponent(LevelSelect_1.default);
-            this._level.node.parent = this.levelParent;
-        }
-        this._level.init(playerId);
-    };
-    Game.prototype.reset = function () {
-        this.lastSelectPlayerIdList = [];
-        this.level.reset();
-    };
-    var Game_1;
-    Game.instance = null;
-    __decorate([
-        property(cc.Prefab)
-    ], Game.prototype, "levelPrefab", void 0);
-    __decorate([
-        property(cc.Node)
-    ], Game.prototype, "levelParent", void 0);
-    Game = Game_1 = __decorate([
+    Game = __decorate([
         ccclass
     ], Game);
     return Game;

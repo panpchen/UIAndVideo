@@ -33,7 +33,6 @@
     "StudioComponent",
     "Toggle",
     "TiledMap",
-    "VideoPlayer",
     "Widget",
     "WebView",
     "3D",
@@ -73,7 +72,7 @@
     }
   },
   "preview-port": 7456,
-  "start-scene": "e45e31c4-2e73-40e0-a7f1-3cbf3327ad10",
+  "start-scene": "4ed857f1-e9fb-4f15-b44c-6bf3faf3e9e0",
   "migrate-history": [
     "cloud-function"
   ],

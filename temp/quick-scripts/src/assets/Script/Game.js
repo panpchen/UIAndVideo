@@ -46,7 +46,27 @@ var Game = /** @class */ (function (_super) {
     Game.prototype.onLoad = function () {
         var _this = this;
         this.videoPlayer.node.on("completed", this._onCompleted, this);
-        this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+        // this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+        // this.videoPlayer.mute = true;
+        // if (cc.sys.isMobile) {
+        //   cc.game.canvas.addEventListener(
+        //     "touchstart",
+        //     () => {
+        //       this.videoPlayer.mute = false;
+        //       cc.error("A");
+        //     },
+        //     false
+        //   );
+        // } else {
+        //   cc.game.canvas.addEventListener(
+        //     "mousedown",
+        //     () => {
+        //       this.videoPlayer.mute = false;
+        //       cc.error("B");
+        //     },
+        //     false
+        //   );
+        // }
         this._curVideoData = Constants_1.STORY_DATA;
         this._hideOptionBtns();
         // 预加载videos所有视频
@@ -57,6 +77,9 @@ var Game = /** @class */ (function (_super) {
             }
             else {
                 cc.log(assets);
+                assets.sort(function (a, b) {
+                    return a.name - b.name;
+                });
                 _this._allVideos = assets;
                 _this._playVideo();
             }
@@ -99,10 +122,10 @@ var Game = /** @class */ (function (_super) {
             this._showOptionBtns();
         }
     };
-    Game.prototype._onReadyToPlay = function (event) {
-        cc.error("ready: ", event.clip);
-        this._playVideo();
-    };
+    // _onReadyToPlay(event: cc.VideoPlayer) {
+    //   cc.error("ready: ", event.clip);
+    //   this._playVideo();
+    // }
     Game.prototype._playVideo = function () {
         this.videoPlayer.clip = this._allVideos[this._curVideoData.videoList[0] - 1];
         this.videoPlayer.play();

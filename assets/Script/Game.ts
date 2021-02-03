@@ -21,7 +21,28 @@ export default class Game extends cc.Component {
   private _curVideoData = null;
   onLoad() {
     this.videoPlayer.node.on("completed", this._onCompleted, this);
-    this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+    // this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+
+    // this.videoPlayer.mute = true;
+    // if (cc.sys.isMobile) {
+    //   cc.game.canvas.addEventListener(
+    //     "touchstart",
+    //     () => {
+    //       this.videoPlayer.mute = false;
+    //       cc.error("A");
+    //     },
+    //     false
+    //   );
+    // } else {
+    //   cc.game.canvas.addEventListener(
+    //     "mousedown",
+    //     () => {
+    //       this.videoPlayer.mute = false;
+    //       cc.error("B");
+    //     },
+    //     false
+    //   );
+    // }
 
     this._curVideoData = STORY_DATA;
 
@@ -34,6 +55,9 @@ export default class Game extends cc.Component {
         cc.error(err);
       } else {
         cc.log(assets);
+        assets.sort((a: any, b: any) => {
+          return a.name - b.name;
+        });
         this._allVideos = assets;
         this._playVideo();
       }
@@ -79,10 +103,10 @@ export default class Game extends cc.Component {
     }
   }
 
-  _onReadyToPlay(event: cc.VideoPlayer) {
-    cc.error("ready: ", event.clip);
-    this._playVideo();
-  }
+  // _onReadyToPlay(event: cc.VideoPlayer) {
+  //   cc.error("ready: ", event.clip);
+  //   this._playVideo();
+  // }
 
   _playVideo() {
     this.videoPlayer.clip = this._allVideos[

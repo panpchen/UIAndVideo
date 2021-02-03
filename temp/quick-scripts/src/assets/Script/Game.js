@@ -52,7 +52,8 @@ var Game = /** @class */ (function (_super) {
         //   cc.game.canvas.addEventListener(
         //     "touchstart",
         //     () => {
-        //       this.videoPlayer.mute = false;
+        //       // this.videoPlayer.mute = false;
+        //       this._playVideo();
         //       cc.error("A");
         //     },
         //     false
@@ -61,7 +62,8 @@ var Game = /** @class */ (function (_super) {
         //   cc.game.canvas.addEventListener(
         //     "mousedown",
         //     () => {
-        //       this.videoPlayer.mute = false;
+        //       // this.videoPlayer.mute = false;
+        //       this._playVideo();
         //       cc.error("B");
         //     },
         //     false
@@ -118,8 +120,13 @@ var Game = /** @class */ (function (_super) {
             this._playVideo();
         }
         else {
-            this._updateBtnsLabel();
-            this._showOptionBtns();
+            if (!this._curVideoData.children) {
+                cc.error("全部播完");
+            }
+            else {
+                this._updateBtnsLabel();
+                this._showOptionBtns();
+            }
         }
     };
     // _onReadyToPlay(event: cc.VideoPlayer) {

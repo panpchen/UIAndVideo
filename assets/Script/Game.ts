@@ -28,7 +28,8 @@ export default class Game extends cc.Component {
     //   cc.game.canvas.addEventListener(
     //     "touchstart",
     //     () => {
-    //       this.videoPlayer.mute = false;
+    //       // this.videoPlayer.mute = false;
+    //       this._playVideo();
     //       cc.error("A");
     //     },
     //     false
@@ -37,7 +38,8 @@ export default class Game extends cc.Component {
     //   cc.game.canvas.addEventListener(
     //     "mousedown",
     //     () => {
-    //       this.videoPlayer.mute = false;
+    //       // this.videoPlayer.mute = false;
+    //       this._playVideo();
     //       cc.error("B");
     //     },
     //     false
@@ -94,12 +96,17 @@ export default class Game extends cc.Component {
 
   _onCompleted(event: cc.VideoPlayer) {
     cc.error("completed: ", event.clip);
+
     this._curVideoData.videoList.splice(0, 1);
     if (this._curVideoData.videoList.length > 0) {
       this._playVideo();
     } else {
-      this._updateBtnsLabel();
-      this._showOptionBtns();
+      if (!this._curVideoData.children) {
+        cc.error("全部播完");
+      } else {
+        this._updateBtnsLabel();
+        this._showOptionBtns();
+      }
     }
   }
 

@@ -23,29 +23,6 @@ export default class Game extends cc.Component {
     this.videoPlayer.node.on("completed", this._onCompleted, this);
     // this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
 
-    // this.videoPlayer.mute = true;
-    // if (cc.sys.isMobile) {
-    //   cc.game.canvas.addEventListener(
-    //     "touchstart",
-    //     () => {
-    //       // this.videoPlayer.mute = false;
-    //       this._playVideo();
-    //       cc.error("A");
-    //     },
-    //     false
-    //   );
-    // } else {
-    //   cc.game.canvas.addEventListener(
-    //     "mousedown",
-    //     () => {
-    //       // this.videoPlayer.mute = false;
-    //       this._playVideo();
-    //       cc.error("B");
-    //     },
-    //     false
-    //   );
-    // }
-
     this._curVideoData = STORY_DATA;
 
     this._hideOptionBtns();
@@ -66,6 +43,16 @@ export default class Game extends cc.Component {
     });
   }
 
+  start() {
+    let canvas = cc.find("Canvas");
+    canvas.on(
+      "touchstart",
+      () => {
+        this._playVideo();
+      },
+      this
+    );
+  }
   _updateBtnsLabel() {
     if (this._curVideoData["titleList"]) {
       this.btns.forEach((btn, i) => {

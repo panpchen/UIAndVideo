@@ -5,6 +5,8 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+import { STORY_DATA } from "./Config/Constants";
+
 const { ccclass, property } = cc._decorator;
 // 开启透明通道
 cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
@@ -16,9 +18,15 @@ export default class Game extends cc.Component {
   btns: cc.Node[] = [];
 
   private _allVideos: cc.Asset[] = [];
+  private _curVideoData = null;
   onLoad() {
     this.videoPlayer.node.on("completed", this._onCompleted, this);
     this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+
+    this._curVideoData = STORY_DATA;
+
+    this._hideOptionBtns();
+
     // 预加载videos所有视频
     cc.resources.preloadDir("Videos", cc.Asset);
     cc.resources.loadDir("Videos", cc.Asset, (err, assets) => {
@@ -27,31 +35,72 @@ export default class Game extends cc.Component {
       } else {
         cc.log(assets);
         this._allVideos = assets;
+        this._playVideo();
       }
     });
   }
 
-  _onCompleted(event) {
-    cc.error("completed: ", event);
+  _updateBtnsLabel() {
+    if (this._curVideoData["titleList"]) {
+      this.btns.forEach((btn, i) => {
+        btn
+          .getChildByName("label")
+          .getComponent(cc.Label).string = this._curVideoData.titleList[i];
+      });
+    }
   }
 
-  _onReadyToPlay(event) {
-    cc.error("ready: ", event);
-    this._playVideo(5);
+  _showOptionBtns() {
+    this.btns.forEach((btn) => {
+      cc.tween(btn)
+        .to(0.2, { y: -300 })
+        .call(() => {
+          btn.getComponent(cc.Widget).updateAlignment();
+        })
+        .start();
+    });
   }
 
-  _playVideo(num) {
-    this.videoPlayer.clip = this._allVideos[num - 1];
+  _hideOptionBtns() {
+    this.btns.forEach((btn) => {
+      btn.y = -460;
+      btn.getComponent(cc.Widget).updateAlignment();
+    });
+  }
+
+  _onCompleted(event: cc.VideoPlayer) {
+    cc.error("completed: ", event.clip);
+    this._curVideoData.videoList.splice(0, 1);
+    if (this._curVideoData.videoList.length > 0) {
+      this._playVideo();
+    } else {
+      this._updateBtnsLabel();
+      this._showOptionBtns();
+    }
+  }
+
+  _onReadyToPlay(event: cc.VideoPlayer) {
+    cc.error("ready: ", event.clip);
+    this._playVideo();
+  }
+
+  _playVideo() {
+    this.videoPlayer.clip = this._allVideos[
+      this._curVideoData.videoList[0] - 1
+    ];
     this.videoPlayer.play();
   }
 
   onClickBtn(evt, parm) {
+    this._hideOptionBtns();
     switch (parm) {
       case "left":
-        this._playVideo(1);
+        this._curVideoData = this._curVideoData.children[0];
+        this._playVideo();
         break;
       case "right":
-        this._playVideo(2);
+        this._curVideoData = this._curVideoData.children[1];
+        this._playVideo();
         break;
     }
   }

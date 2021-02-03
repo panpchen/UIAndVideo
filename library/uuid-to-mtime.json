@@ -30,8 +30,8 @@
     "relativePath": "Scene"
   },
   "4ed857f1-e9fb-4f15-b44c-6bf3faf3e9e0": {
-    "asset": 1612316377920,
-    "meta": 1612316428635,
+    "asset": 1612342672966,
+    "meta": 1612342672973,
     "relativePath": "Scene/game.fire"
   },
   "4734c20c-0db8-4eb2-92ea-e692f4d70934": {
@@ -53,11 +53,6 @@
     "asset": 1612316377921,
     "meta": 1612316428643,
     "relativePath": "Script/Config"
-  },
-  "1ab7e4af-ad3d-4e18-a27b-a98827bd6c1e": {
-    "asset": 1612316377921,
-    "meta": 1612316428763,
-    "relativePath": "Script/Config/Constants.ts"
   },
   "1820eed8-5996-4056-93e9-771862c09bac": {
     "asset": 1609945210581,
@@ -384,11 +379,6 @@
     "meta": 1612316428859,
     "relativePath": "Texture"
   },
-  "6cb9c8f1-82d6-4f56-813c-0204e8020f67": {
-    "asset": 1612316377922,
-    "meta": 1612316428846,
-    "relativePath": "Script/Game.ts"
-  },
   "c4480a0a-6ac5-443f-8b40-361a14257fc8": {
     "asset": 1601192580000,
     "meta": 1612316360773,
@@ -674,14 +664,14 @@
     "meta": 1612316360980,
     "relativePath": "model/primitives.fbx"
   },
-  "3bb21ff0-00f0-4f0c-b918-8d1f72f65f72": {
-    "asset": 1611905794713,
-    "meta": 1612316428524,
-    "relativePath": "Prafabs"
+  "1ab7e4af-ad3d-4e18-a27b-a98827bd6c1e": {
+    "asset": 1612340611771,
+    "meta": 1612340645963,
+    "relativePath": "Script/Config/Constants.ts"
   },
-  "00480bf2-ebe0-4006-94b4-f3ff5a1e9773": {
-    "asset": 1612316377919,
-    "meta": 1612316428525,
-    "relativePath": "Res"
+  "6cb9c8f1-82d6-4f56-813c-0204e8020f67": {
+    "asset": 1612342697339,
+    "meta": 1612342701089,
+    "relativePath": "Script/Game.ts"
   }
 }

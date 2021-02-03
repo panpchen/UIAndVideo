@@ -29,6 +29,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var Constants_1 = require("./Config/Constants");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 // 开启透明通道
 cc.macro.ENABLE_TRANSPARENT_CANVAS = true;
@@ -39,12 +40,15 @@ var Game = /** @class */ (function (_super) {
         _this.videoPlayer = null;
         _this.btns = [];
         _this._allVideos = [];
+        _this._curVideoData = null;
         return _this;
     }
     Game.prototype.onLoad = function () {
         var _this = this;
         this.videoPlayer.node.on("completed", this._onCompleted, this);
         this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+        this._curVideoData = Constants_1.STORY_DATA;
+        this._hideOptionBtns();
         // 预加载videos所有视频
         cc.resources.preloadDir("Videos", cc.Asset);
         cc.resources.loadDir("Videos", cc.Asset, function (err, assets) {
@@ -54,27 +58,65 @@ var Game = /** @class */ (function (_super) {
             else {
                 cc.log(assets);
                 _this._allVideos = assets;
+                _this._playVideo();
             }
         });
     };
+    Game.prototype._updateBtnsLabel = function () {
+        var _this = this;
+        if (this._curVideoData["titleList"]) {
+            this.btns.forEach(function (btn, i) {
+                btn
+                    .getChildByName("label")
+                    .getComponent(cc.Label).string = _this._curVideoData.titleList[i];
+            });
+        }
+    };
+    Game.prototype._showOptionBtns = function () {
+        this.btns.forEach(function (btn) {
+            cc.tween(btn)
+                .to(0.2, { y: -300 })
+                .call(function () {
+                btn.getComponent(cc.Widget).updateAlignment();
+            })
+                .start();
+        });
+    };
+    Game.prototype._hideOptionBtns = function () {
+        this.btns.forEach(function (btn) {
+            btn.y = -460;
+            btn.getComponent(cc.Widget).updateAlignment();
+        });
+    };
     Game.prototype._onCompleted = function (event) {
-        cc.error("completed: ", event);
+        cc.error("completed: ", event.clip);
+        this._curVideoData.videoList.splice(0, 1);
+        if (this._curVideoData.videoList.length > 0) {
+            this._playVideo();
+        }
+        else {
+            this._updateBtnsLabel();
+            this._showOptionBtns();
+        }
     };
     Game.prototype._onReadyToPlay = function (event) {
-        cc.error("ready: ", event);
-        this._playVideo(5);
+        cc.error("ready: ", event.clip);
+        this._playVideo();
     };
-    Game.prototype._playVideo = function (num) {
-        this.videoPlayer.clip = this._allVideos[num - 1];
+    Game.prototype._playVideo = function () {
+        this.videoPlayer.clip = this._allVideos[this._curVideoData.videoList[0] - 1];
         this.videoPlayer.play();
     };
     Game.prototype.onClickBtn = function (evt, parm) {
+        this._hideOptionBtns();
         switch (parm) {
             case "left":
-                this._playVideo(1);
+                this._curVideoData = this._curVideoData.children[0];
+                this._playVideo();
                 break;
             case "right":
-                this._playVideo(2);
+                this._curVideoData = this._curVideoData.children[1];
+                this._playVideo();
                 break;
         }
     };

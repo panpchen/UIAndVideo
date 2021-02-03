@@ -14,35 +14,47 @@ cc._RF.push(module, '1ab7eSvrT1OGKJ7qYgnvWwe', 'Constants');
 // Script/Config/Constants.ts
 
 "use strict";
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Constants = void 0;
-var TopicConfig_5 = {
-    firstVideoNum: 5,
-    leftTxt: "A 放弃梦想，回家",
-    rightTxt: "A 坚持梦想，寻求的哥哥的帮助",
+exports.STORY_DATA = void 0;
+exports.STORY_DATA = {
+    videoList: [5],
+    titleList: ["A 放弃梦想,回家", "B 坚持梦想,寻求哥哥的帮助"],
+    children: [
+        {
+            videoList: [1],
+            titleList: ["A 继续努力练习,相信总会成功", "B 再去听听哥哥的意见吧"],
+            children: [
+                {
+                    videoList: [3, 2],
+                    titleList: ["A 去问问老师,看看有什么好方法", "B 只要努力,一定能行"],
+                    children: [
+                        {
+                            videoList: [4, 3, 6],
+                        },
+                        {
+                            videoList: [3, 4, 6],
+                        },
+                    ],
+                },
+                {
+                    videoList: [2, 4, 3, 6],
+                },
+            ],
+        },
+        {
+            videoList: [2],
+            titleList: ["A 寻求老师的意见", "B 继续努力努力,相信总会成功"],
+            children: [
+                {
+                    videoList: [4, 3, 6],
+                },
+                {
+                    videoList: [3, 4, 6],
+                },
+            ],
+        },
+    ],
 };
-var TopicConfig_1 = {
-    firstVideoNum: 1,
-    leftTxt: "A 放弃梦想，回家",
-    rightTxt: "A 坚持梦想，寻求的哥哥的帮助",
-};
-var TopicConfig_2 = {
-    firstVideoNum: 2,
-    leftTxt: "A 放弃梦想，回家",
-    rightTxt: "A 坚持梦想，寻求的哥哥的帮助",
-};
-var Constants = /** @class */ (function () {
-    function Constants() {
-    }
-    return Constants;
-}());
-exports.Constants = Constants;
 
 cc._RF.pop();
                     }
@@ -55,4 +67,4 @@ cc._RF.pop();
                         });
                     }
                 })();
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFzc2V0cy9TY3JpcHQvQ29uZmlnL0NvbnN0YW50cy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsb0JBQW9CO0FBQ3BCLHdFQUF3RTtBQUN4RSxtQkFBbUI7QUFDbkIsa0ZBQWtGO0FBQ2xGLDhCQUE4QjtBQUM5QixrRkFBa0Y7OztBQUVsRixJQUFNLGFBQWEsR0FBRztJQUNwQixhQUFhLEVBQUUsQ0FBQztJQUNoQixPQUFPLEVBQUUsV0FBVztJQUNwQixRQUFRLEVBQUUsaUJBQWlCO0NBQzVCLENBQUM7QUFFRixJQUFNLGFBQWEsR0FBRztJQUNwQixhQUFhLEVBQUUsQ0FBQztJQUNoQixPQUFPLEVBQUUsV0FBVztJQUNwQixRQUFRLEVBQUUsaUJBQWlCO0NBQzVCLENBQUM7QUFFRixJQUFNLGFBQWEsR0FBRztJQUNwQixhQUFhLEVBQUUsQ0FBQztJQUNoQixPQUFPLEVBQUUsV0FBVztJQUNwQixRQUFRLEVBQUUsaUJBQWlCO0NBQzVCLENBQUM7QUFDRjtJQUFBO0lBSUEsQ0FBQztJQUFELGdCQUFDO0FBQUQsQ0FKQSxBQUlDLElBQUE7QUFKWSw4QkFBUyIsImZpbGUiOiIiLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXNDb250ZW50IjpbIi8vIExlYXJuIFR5cGVTY3JpcHQ6XG4vLyAgLSBodHRwczovL2RvY3MuY29jb3MuY29tL2NyZWF0b3IvbWFudWFsL2VuL3NjcmlwdGluZy90eXBlc2NyaXB0Lmh0bWxcbi8vIExlYXJuIEF0dHJpYnV0ZTpcbi8vICAtIGh0dHBzOi8vZG9jcy5jb2Nvcy5jb20vY3JlYXRvci9tYW51YWwvZW4vc2NyaXB0aW5nL3JlZmVyZW5jZS9hdHRyaWJ1dGVzLmh0bWxcbi8vIExlYXJuIGxpZmUtY3ljbGUgY2FsbGJhY2tzOlxuLy8gIC0gaHR0cHM6Ly9kb2NzLmNvY29zLmNvbS9jcmVhdG9yL21hbnVhbC9lbi9zY3JpcHRpbmcvbGlmZS1jeWNsZS1jYWxsYmFja3MuaHRtbFxuXG5jb25zdCBUb3BpY0NvbmZpZ181ID0ge1xuICBmaXJzdFZpZGVvTnVtOiA1LFxuICBsZWZ0VHh0OiBcIkEg5pS+5byD5qKm5oOz77yM5Zue5a62XCIsXG4gIHJpZ2h0VHh0OiBcIkEg5Z2a5oyB5qKm5oOz77yM5a+75rGC55qE5ZOl5ZOl55qE5biu5YqpXCIsXG59O1xuXG5jb25zdCBUb3BpY0NvbmZpZ18xID0ge1xuICBmaXJzdFZpZGVvTnVtOiAxLFxuICBsZWZ0VHh0OiBcIkEg5pS+5byD5qKm5oOz77yM5Zue5a62XCIsXG4gIHJpZ2h0VHh0OiBcIkEg5Z2a5oyB5qKm5oOz77yM5a+75rGC55qE5ZOl5ZOl55qE5biu5YqpXCIsXG59O1xuXG5jb25zdCBUb3BpY0NvbmZpZ18yID0ge1xuICBmaXJzdFZpZGVvTnVtOiAyLFxuICBsZWZ0VHh0OiBcIkEg5pS+5byD5qKm5oOz77yM5Zue5a62XCIsXG4gIHJpZ2h0VHh0OiBcIkEg5Z2a5oyB5qKm5oOz77yM5a+75rGC55qE5ZOl5ZOl55qE5biu5YqpXCIsXG59O1xuZXhwb3J0IGNsYXNzIENvbnN0YW50cyB7XG4gIC8vICAgc3RhdGljIGdldENvbmZpZ0J5SWQoaWQpIHtcbiAgLy8gICAgIHJldHVybiBUb3BpY0NvbmZpZ3NbaWRdO1xuICAvLyAgIH1cbn1cbiJdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFzc2V0cy9TY3JpcHQvQ29uZmlnL0NvbnN0YW50cy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBYSxRQUFBLFVBQVUsR0FBRztJQUN4QixTQUFTLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFDZCxTQUFTLEVBQUUsQ0FBQyxXQUFXLEVBQUUsZ0JBQWdCLENBQUM7SUFDMUMsUUFBUSxFQUFFO1FBQ1I7WUFDRSxTQUFTLEVBQUUsQ0FBQyxDQUFDLENBQUM7WUFDZCxTQUFTLEVBQUUsQ0FBQyxpQkFBaUIsRUFBRSxjQUFjLENBQUM7WUFDOUMsUUFBUSxFQUFFO2dCQUNSO29CQUNFLFNBQVMsRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUM7b0JBQ2pCLFNBQVMsRUFBRSxDQUFDLGtCQUFrQixFQUFFLGFBQWEsQ0FBQztvQkFDOUMsUUFBUSxFQUFFO3dCQUNSOzRCQUNFLFNBQVMsRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO3lCQUNyQjt3QkFDRDs0QkFDRSxTQUFTLEVBQUUsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQzt5QkFDckI7cUJBQ0Y7aUJBQ0Y7Z0JBQ0Q7b0JBQ0UsU0FBUyxFQUFFLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO2lCQUN4QjthQUNGO1NBQ0Y7UUFDRDtZQUNFLFNBQVMsRUFBRSxDQUFDLENBQUMsQ0FBQztZQUNkLFNBQVMsRUFBRSxDQUFDLFdBQVcsRUFBRSxpQkFBaUIsQ0FBQztZQUMzQyxRQUFRLEVBQUU7Z0JBQ1I7b0JBQ0UsU0FBUyxFQUFFLENBQUMsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUM7aUJBQ3JCO2dCQUNEO29CQUNFLFNBQVMsRUFBRSxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDO2lCQUNyQjthQUNGO1NBQ0Y7S0FDRjtDQUNGLENBQUMiLCJmaWxlIjoiIiwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgU1RPUllfREFUQSA9IHtcbiAgdmlkZW9MaXN0OiBbNV0sXG4gIHRpdGxlTGlzdDogW1wiQSDmlL7lvIPmoqbmg7Ms5Zue5a62XCIsIFwiQiDlnZrmjIHmoqbmg7Ms5a+75rGC5ZOl5ZOl55qE5biu5YqpXCJdLFxuICBjaGlsZHJlbjogW1xuICAgIHtcbiAgICAgIHZpZGVvTGlzdDogWzFdLFxuICAgICAgdGl0bGVMaXN0OiBbXCJBIOe7p+e7reWKquWKm+e7g+S5oCznm7jkv6HmgLvkvJrmiJDlip9cIiwgXCJCIOWGjeWOu+WQrOWQrOWTpeWTpeeahOaEj+ingeWQp1wiXSxcbiAgICAgIGNoaWxkcmVuOiBbXG4gICAgICAgIHtcbiAgICAgICAgICB2aWRlb0xpc3Q6IFszLCAyXSxcbiAgICAgICAgICB0aXRsZUxpc3Q6IFtcIkEg5Y676Zeu6Zeu6ICB5biILOeci+eci+acieS7gOS5iOWlveaWueazlVwiLCBcIkIg5Y+q6KaB5Yqq5YqbLOS4gOWumuiDveihjFwiXSxcbiAgICAgICAgICBjaGlsZHJlbjogW1xuICAgICAgICAgICAge1xuICAgICAgICAgICAgICB2aWRlb0xpc3Q6IFs0LCAzLCA2XSxcbiAgICAgICAgICAgIH0sXG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgIHZpZGVvTGlzdDogWzMsIDQsIDZdLFxuICAgICAgICAgICAgfSxcbiAgICAgICAgICBdLFxuICAgICAgICB9LFxuICAgICAgICB7XG4gICAgICAgICAgdmlkZW9MaXN0OiBbMiwgNCwgMywgNl0sXG4gICAgICAgIH0sXG4gICAgICBdLFxuICAgIH0sXG4gICAge1xuICAgICAgdmlkZW9MaXN0OiBbMl0sXG4gICAgICB0aXRsZUxpc3Q6IFtcIkEg5a+75rGC6ICB5biI55qE5oSP6KeBXCIsIFwiQiDnu6fnu63liqrlipvliqrlipss55u45L+h5oC75Lya5oiQ5YqfXCJdLFxuICAgICAgY2hpbGRyZW46IFtcbiAgICAgICAge1xuICAgICAgICAgIHZpZGVvTGlzdDogWzQsIDMsIDZdLFxuICAgICAgICB9LFxuICAgICAgICB7XG4gICAgICAgICAgdmlkZW9MaXN0OiBbMywgNCwgNl0sXG4gICAgICAgIH0sXG4gICAgICBdLFxuICAgIH0sXG4gIF0sXG59O1xuIl19

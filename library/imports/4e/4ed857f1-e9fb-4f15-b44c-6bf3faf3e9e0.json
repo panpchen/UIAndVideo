@@ -181,7 +181,7 @@
       "array": [
         0,
         0,
-        532.6056233274298,
+        533.4716487312143,
         0,
         0,
         0,
@@ -315,9 +315,7 @@
     "_enabled": true,
     "_resourceType": 1,
     "_remoteURL": "",
-    "_clip": {
-      "__uuid__": "8d4adb15-7e04-4c1a-a5a0-cf89da8d01ae"
-    },
+    "_clip": null,
     "_volume": 0.5,
     "_mute": false,
     "_isFullscreen": false,
@@ -454,7 +452,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 262.52,
+      "width": 0,
       "height": 44.1
     },
     "_anchorPoint": {
@@ -506,8 +504,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "A  放弃梦想,回家",
-    "_N$string": "A  放弃梦想,回家",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 35,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -535,8 +533,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 143.74,
-    "_right": 143.74,
+    "_left": 275,
+    "_right": 275,
     "_top": 27.95,
     "_bottom": 27.95,
     "_verticalCenter": 0,
@@ -593,7 +591,7 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 44,
+    "_alignFlags": 40,
     "_left": 64.99999999999999,
     "_right": 0.51953125,
     "_top": 620,
@@ -874,7 +872,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 427.79,
+      "width": 0,
       "height": 44.1
     },
     "_anchorPoint": {
@@ -926,8 +924,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "B 坚持梦想,寻求哥哥的帮助",
-    "_N$string": "B 坚持梦想,寻求哥哥的帮助",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 35,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -986,7 +984,7 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 44,
+    "_alignFlags": 40,
     "_left": 0.51953125,
     "_right": 65.00000000000006,
     "_top": 620,

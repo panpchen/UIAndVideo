@@ -37,22 +37,53 @@ var Game = /** @class */ (function (_super) {
     function Game() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.videoPlayer = null;
+        _this.btns = [];
+        _this._allVideos = [];
         return _this;
     }
     Game.prototype.onLoad = function () {
+        var _this = this;
         this.videoPlayer.node.on("completed", this._onCompleted, this);
         this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+        // 预加载videos所有视频
+        cc.resources.preloadDir("Videos", cc.Asset);
+        cc.resources.loadDir("Videos", cc.Asset, function (err, assets) {
+            if (err) {
+                cc.error(err);
+            }
+            else {
+                cc.log(assets);
+                _this._allVideos = assets;
+            }
+        });
     };
     Game.prototype._onCompleted = function (event) {
-        cc.error("completed: ", event.detail);
+        cc.error("completed: ", event);
     };
     Game.prototype._onReadyToPlay = function (event) {
-        cc.error("ready: ", event.detail);
+        cc.error("ready: ", event);
+        this._playVideo(5);
+    };
+    Game.prototype._playVideo = function (num) {
+        this.videoPlayer.clip = this._allVideos[num - 1];
         this.videoPlayer.play();
+    };
+    Game.prototype.onClickBtn = function (evt, parm) {
+        switch (parm) {
+            case "left":
+                this._playVideo(1);
+                break;
+            case "right":
+                this._playVideo(2);
+                break;
+        }
     };
     __decorate([
         property(cc.VideoPlayer)
     ], Game.prototype, "videoPlayer", void 0);
+    __decorate([
+        property([cc.Node])
+    ], Game.prototype, "btns", void 0);
     Game = __decorate([
         ccclass
     ], Game);

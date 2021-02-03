@@ -18,9 +18,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 660.984375,
+                "height": 659.359375,
                 "type": "panel",
-                "width": 984
+                "width": 1109.984375
               },
               {
                 "active": 0,
@@ -29,14 +29,14 @@
                   "timeline",
                   "game-window"
                 ],
-                "height": 274,
+                "height": 273.140625,
                 "type": "panel",
-                "width": 984
+                "width": 1109.984375
               }
             ],
-            "height": 938,
+            "height": 935.5,
             "type": "dock-v",
-            "width": 984
+            "width": 1109.984375
           },
           {
             "children": [
@@ -45,23 +45,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 467,
+                "height": 465.75,
                 "type": "panel",
-                "width": 330
+                "width": 204
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 468,
+                "height": 466.75,
                 "type": "panel",
-                "width": 330
+                "width": 204
               }
             ],
-            "height": 938,
+            "height": 935.5,
             "type": "dock-v",
-            "width": 330
+            "width": 204
           },
           {
             "active": 0,
@@ -69,7 +69,7 @@
               "inspector",
               "cocos-services"
             ],
-            "height": 938,
+            "height": 935.5,
             "type": "panel",
             "width": 304
           }
@@ -86,9 +86,7 @@
         "inspector",
         "cocos-services"
       ]
-    },
-    "worker": {},
-    "window-1612150630096": {}
+    }
   },
   "panels": {
     "preferences": {

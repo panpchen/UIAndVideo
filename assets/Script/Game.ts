@@ -19,9 +19,10 @@ export default class Game extends cc.Component {
 
   private _allVideos: cc.Asset[] = [];
   private _curVideoData = null;
+  private _isReadyPlay: boolean = false;
   onLoad() {
     this.videoPlayer.node.on("completed", this._onCompleted, this);
-    // this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+    this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
 
     this._curVideoData = STORY_DATA;
 
@@ -38,20 +39,19 @@ export default class Game extends cc.Component {
           return a.name - b.name;
         });
         this._allVideos = assets;
-        this._playVideo();
+        this._setVideoClip();
+
+        if (cc.sys.isBrowser) {
+          cc.find("Canvas").on(
+            "touchstart",
+            () => {
+              this._setVideoClip();
+            },
+            this
+          );
+        }
       }
     });
-  }
-
-  start() {
-    let canvas = cc.find("Canvas");
-    canvas.on(
-      "touchstart",
-      () => {
-        this._playVideo();
-      },
-      this
-    );
   }
   _updateBtnsLabel() {
     if (this._curVideoData["titleList"]) {
@@ -86,7 +86,7 @@ export default class Game extends cc.Component {
 
     this._curVideoData.videoList.splice(0, 1);
     if (this._curVideoData.videoList.length > 0) {
-      this._playVideo();
+      this._setVideoClip();
     } else {
       if (!this._curVideoData.children) {
         cc.error("全部播完");
@@ -97,16 +97,19 @@ export default class Game extends cc.Component {
     }
   }
 
-  // _onReadyToPlay(event: cc.VideoPlayer) {
-  //   cc.error("ready: ", event.clip);
-  //   this._playVideo();
-  // }
+  _onReadyToPlay(event: cc.VideoPlayer) {
+    cc.error("ready play video: ", event.clip);
+    if (this._isReadyPlay) {
+      this.videoPlayer.play();
+    }
+    this._isReadyPlay = false;
+  }
 
-  _playVideo() {
+  _setVideoClip() {
     this.videoPlayer.clip = this._allVideos[
       this._curVideoData.videoList[0] - 1
     ];
-    this.videoPlayer.play();
+    this._isReadyPlay = true;
   }
 
   onClickBtn(evt, parm) {
@@ -114,11 +117,11 @@ export default class Game extends cc.Component {
     switch (parm) {
       case "left":
         this._curVideoData = this._curVideoData.children[0];
-        this._playVideo();
+        this._setVideoClip();
         break;
       case "right":
         this._curVideoData = this._curVideoData.children[1];
-        this._playVideo();
+        this._setVideoClip();
         break;
     }
   }

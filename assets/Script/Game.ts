@@ -19,10 +19,10 @@ export default class Game extends cc.Component {
 
   private _allVideos: cc.Asset[] = [];
   private _curVideoData = null;
-  private _isReadyPlay: boolean = false;
+  // private _isReadyPlay: boolean = false;
   onLoad() {
     this.videoPlayer.node.on("completed", this._onCompleted, this);
-    this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
+    // this.videoPlayer.node.on("ready-to-play", this._onReadyToPlay, this);
 
     this._curVideoData = STORY_DATA;
 
@@ -42,10 +42,12 @@ export default class Game extends cc.Component {
         this._setVideoClip();
 
         if (cc.sys.isBrowser) {
-          cc.find("Canvas").on(
+          cc.find("Canvas").once(
             "touchstart",
             () => {
-              this._setVideoClip();
+              if (!this.videoPlayer.isPlaying && this.videoPlayer.clip) {
+                this.videoPlayer.play();
+              }
             },
             this
           );
@@ -97,19 +99,20 @@ export default class Game extends cc.Component {
     }
   }
 
-  _onReadyToPlay(event: cc.VideoPlayer) {
-    cc.error("ready play video: ", event.clip);
-    if (this._isReadyPlay) {
-      this.videoPlayer.play();
-    }
-    this._isReadyPlay = false;
-  }
+  // _onReadyToPlay(event: cc.VideoPlayer) {
+  //   cc.error("ready play video: ", event.clip);
+  //   if (this._isReadyPlay) {
+  //     this.videoPlayer.play();
+  //   }
+  //   this._isReadyPlay = false;
+  // }
 
   _setVideoClip() {
     this.videoPlayer.clip = this._allVideos[
       this._curVideoData.videoList[0] - 1
     ];
-    this._isReadyPlay = true;
+    // this._isReadyPlay = true;
+    this.videoPlayer.play();
   }
 
   onClickBtn(evt, parm) {
